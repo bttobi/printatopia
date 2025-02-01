@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ${DOCKERFILE}
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - CHOKIDAR_USEPOLLING=true
+      - PORT=${PORT}
+    ports:
+      - ${PORT}:3000
+    command: ["pnpm", "run", "dev"]
