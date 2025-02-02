@@ -1,0 +1,9 @@
+echo "🔴 ERROR: Your commit message does not follow Conventional Commits!"
+echo "📝 Example: feat: add new login button"
+echo "📖 See: https://www.conventionalcommits.org/"
+
+pnpm commitlint --edit $1 || {
+  echo "❌ Commit message check failed. Fix it and try again."
+  exit 1
+}
+
